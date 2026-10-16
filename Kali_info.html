@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kali Information Portal</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: #0b1120;
+    color: #e2e8f0;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.panel {
+    width: 100%;
+    max-width: 650px;
+    padding: 35px;
+    background: #172033;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px #0006;
+}
+
+h1 {
+    color: #38bdf8;
+}
+
+input, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+input {
+    color: white;
+    background: #0f172a;
+    border: 1px solid #475569;
+}
+
+button {
+    color: white;
+    background: #0284c7;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #0369a1;
+}
+
+.hidden {
+    display: none;
+}
+
+.note {
+    color: #94a3b8;
+}
+
+.credentials {
+    background: #0f172a;
+    border: 1px solid #38bdf8;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.credentials p {
+    margin: 8px 0;
+}
+
+a {
+    color: #38bdf8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="panel">
+
+    <h1>☠ Kali Information Portal</h1>
+    <p class="note">AUTHORIZED OPERATIVES ONLY</p>
+    <hr>
+
+    <!-- LOGIN PAGE -->
+    <div id="login">
+
+        <h3>Operative Authentication</h3>
+
+        <p>
+            Welcome, operative. Use the credentials below to access
+            your reconnaissance machine.
+        </p>
+
+        <div class="credentials">
+            <p><strong>Username:</strong> kalu</p>
+            <p><strong>Password:</strong> toor</p>
+            <p class="note">
+                Enter these credentials below to continue.
+            </p>
+        </div>
+
+        <form id="loginForm">
+
+            <input
+                id="username"
+                placeholder="Enter username"
+                autocomplete="off"
+                required
+            >
+
+            <input
+                id="password"
+                type="password"
+                placeholder="Enter password"
+                required
+            >
+
+            <button type="submit">Authenticate</button>
+
+        </form>
+
+        <p id="error" style="color:#fb7185"></p>
+
+    </div>
+
+    <!-- NEXT PAGE / MISSION INSTRUCTIONS -->
+    <div id="content" class="hidden">
+
+        <h2>✓ Access Granted</h2>
+
+        <p>
+            Authentication successful.
+            Your reconnaissance training begins here. Use these credentials to log in to the Kali Machine Provided. 
+        </p>
+
+        <hr>
+
+        <h3>Mission Briefing</h3>
+
+        <p>
+            Your mission is to investigate a digital image on the website discover
+            information that may not be visible when the image is
+            opened normally.
+        </p>
+
+        <h3>Available Tools</h3>
+
+        <ul>
+            <li><b>ExifTool:</b> Inspect image metadata.</li>
+            <li><b>Nmap:</b> Discover services on authorized lab targets.</li>
+            <li><b>CyberChef:</b> Decode and analyze encoded data.</li>
+            <li><b>Terminal:</b> Run commands in your Kali Linux lab.</li>
+        </ul>
+
+        <h3>Mission Instructions</h3>
+
+        <ol>
+            <li>Open the Image Tool portal on Kali Machine.</li>
+            <li>Locate the hidden content.</li>
+            <li>Inspect its metadata for hidden or unusual information.</li>
+        </ol>
+
+        <p class="note">
+            Hint; Caesar Cipher and Maybe Base 64 REVERSE 
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener(
+    "submit",
+    function(e) {
+        e.preventDefault();
+
+        const user =
+            document.getElementById("username").value.trim();
+
+        const pass =
+            document.getElementById("password").value;
+
+        if (user === "kalu" && pass === "toor") {
+
+            document.getElementById("login").classList.add("hidden");
+
+            document.getElementById("content").classList.remove("hidden");
+
+        } else {
+
+            document.getElementById("error").textContent =
+                "Access denied. Please enter the displayed credentials.";
+
+        }
+    }
+);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Corporate Image Utility</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 15px;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: #0f172a;
+            color: #e2e8f0;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        .panel {
+            max-width: 750px;
+            width: 100%;
+            padding: 30px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        h1 {
+            color: #38bdf8;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #f1f5f9;
+        }
+
+        .asset {
+            display: block;
+            width: 100%;
+            max-width: 520px;
+            max-height: 500px;
+            object-fit: contain;
+            margin: 20px auto;
+            border-radius: 8px;
+            border: 1px solid #475569;
+        }
+
+        .hint {
+            padding: 18px;
+            margin-top: 25px;
+            background: #0f172a;
+            border-left: 4px solid #38bdf8;
+            border-radius: 6px;
+            text-align: left;
+        }
+
+        a.button {
+            display: inline-block;
+            margin: 12px 5px;
+            padding: 12px 18px;
+            background: #0284c7;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.2s ease;
+        }
+
+        a.button:hover {
+            background: #0369a1;
+        }
+
+        p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #334155;
+            margin: 24px 0;
+        }
+
+        .footer {
+            margin-top: 24px;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .panel {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="panel">
+
+        <h1>▣ Ghost Asset Repo</h1>
+
+        <p>
+            Asset ID: IMG-0472 |
+            Classification: Internal
+        </p>
+
+        <hr>
+
+        <h3>Corporate Asset Viewer</h3>
+
+        <!-- Local image: keep BopitWORM.jpg beside index.html -->
+        <img
+            class="asset"
+            src="BopitWORM.jpg"
+            alt="BopitWORM corporate asset"
+        >
+
+        <!-- Download the local image -->
+        <a
+            class="button"
+            href="BopitWORM.jpg"
+            download="BopitWORM.jpg"
+        >
+            Download Image ↓
+        </a>
+
+        <div class="hint">
+            <h3>🔎 Hidden Forensic Hint</h3>
+
+            <p><strong>Use Kali + ExifTool?</strong></p>
+
+            <p>
+                Images can contain metadata that is not visible
+                in the picture itself. Examine the downloaded
+                file's metadata for clues that may help unlock
+                the next stage.
+            </p>
+        </div>
+
+        <div class="footer">
+            Ghost Asset Repo &bull; IMG-0472
+        </div>
+
+    </main>
+</body>
+</html>
