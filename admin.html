@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d18">
+<title>Ghost Server | Admin Gateway</title>
+
+<style>
+/* ==========================================
+   GHOST SERVER :: INTERFACE STYLES
+   ========================================== */
+
+:root {
+    --background: #080d18;
+    --panel: #172033;
+    --input: #0f172a;
+    --red: #b91c1c;
+    --red-light: #f87171;
+    --green: #4ade80;
+    --white: #e2e8f0;
+    --muted: #fca5a5;
+    --border: #475569;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background: var(--background);
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background:
+        radial-gradient(
+            circle at center,
+            #172033 0%,
+            #080d18 75%
+        );
+    color: var(--white);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.panel {
+    width: 100%;
+    max-width: 480px;
+    padding: 35px;
+    background: var(--panel);
+    border: 1px solid #7f1d1d;
+    border-radius: 12px;
+    box-shadow:
+        0 15px 45px #0008,
+        0 0 20px #7f1d1d22;
+}
+
+h1 {
+    margin-top: 0;
+    color: var(--red-light);
+    letter-spacing: 1px;
+}
+
+h2 {
+    color: var(--green);
+}
+
+h3 {
+    color: var(--white);
+}
+
+p {
+    line-height: 1.6;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #334155;
+    margin: 24px 0;
+}
+
+.status {
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+input,
+button {
+    display: block;
+    width: 100%;
+    margin-top: 14px;
+    padding: 13px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+input {
+    background: var(--input);
+    color: white;
+    border: 1px solid var(--border);
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--red-light);
+    box-shadow: 0 0 0 2px #f8717133;
+}
+
+button {
+    background: var(--red);
+    color: white;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #991b1b;
+}
+
+button:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 3px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.success-message {
+    padding: 15px;
+    background: #052e16;
+    border: 1px solid #166534;
+    border-radius: 8px;
+}
+
+.success-message p {
+    color: var(--green);
+}
+
+.footer {
+    margin-top: 24px;
+    color: #64748b;
+    font-size: 12px;
+    text-align: center;
+}
+
+#error {
+    min-height: 20px;
+    margin-bottom: 0;
+}
+
+@media (max-width: 520px) {
+    .panel {
+        padding: 24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="panel">
+
+    <header>
+        <h1>👻 Ghost Server</h1>
+        <p>Administrator Authentication Gateway</p>
+        <p class="status">
+            RESTRICTED ACCESS // SECURITY LEVEL 3
+        </p>
+    </header>
+
+    <hr>
+
+    <!-- AUTHENTICATION INTERFACE -->
+
+    <section id="authentication">
+        <h3>Identity Verification</h3>
+
+        <p>
+            Enter the authorized access key to continue
+            to the Ghost Server console.
+        </p>
+
+        <form id="accessForm">
+            <label for="accessKey">
+                Administrator Password
+            </label>
+
+            <input
+                id="accessKey"
+                name="accessKey"
+                type="text"
+                placeholder="Type password here"
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="false"
+                required
+            >
+
+            <button type="submit">
+                Authenticate
+            </button>
+        </form>
+
+        <p
+            id="error"
+            class="status"
+            role="alert"
+            aria-live="polite"
+        ></p>
+    </section>
+
+    <!-- AUTHENTICATION SUCCESS INTERFACE -->
+
+    <section
+        id="successConsole"
+        class="hidden"
+        aria-live="polite"
+    >
+        <h2>✓ ACCESS GRANTED</h2>
+
+        <div class="success-message">
+            <h3>Congratulations, Operative!</h3>
+
+            <p>
+                You have successfully gained privilege
+                access to the Ghost Server.
+            </p>
+        </div>
+
+        <hr>
+
+        <h3>System Information</h3>
+
+        <p>Host: GHOST-SERVER</p>
+        <p>Role: Administrator (Simulated)</p>
+        <p>Authentication: Successful</p>
+        <p>Mission Status: Complete</p>
+        <p>Username: Administrator</p>
+        <p>Password: GhostP@ss</p>
+
+        <p class="status">
+            SECURE SESSION ESTABLISHED
+        </p>
+    </section>
+
+    <footer class="footer">
+        GHOST SERVER // AUTHORIZED ACCESS ONLY
+    </footer>
+
+</main>
+
+<script>
+"use strict";
+
+/* ==========================================
+   MODULE 01 :: INTERFACE REFERENCES
+   ========================================== */
+
+const Gateway = {
+    form: document.getElementById("accessForm"),
+    input: document.getElementById("accessKey"),
+    error: document.getElementById("error"),
+    login: document.getElementById("authentication"),
+    console: document.getElementById("successConsole")
+};
+
+/* ==========================================
+   MODULE 02 :: ENCODED DEMONSTRATION KEY
+   ========================================== */
+
+/*
+ * The expected password is represented as character
+ * codes rather than a plain-text password literal.
+ *
+ * This only obscures the value in the source.
+ * It is NOT secure authentication or encryption.
+ */
+
+const AccessMatrix = Object.freeze([
+    71, 104, 111, 111,
+    108, 101, 114, 35,
+    94, 37, 55, 56
+]);
+
+/* ==========================================
+   MODULE 03 :: INPUT NORMALIZATION
+   ========================================== */
+
+function readAccessKey() {
+    return Gateway.input.value;
+}
+
+/* ==========================================
+   MODULE 04 :: KEY VERIFICATION
+   ========================================== */
+
+function verifyAccessKey(candidate) {
+    if (candidate.length !== AccessMatrix.length) {
+        return false;
+    }
+
+    for (
+        let position = 0;
+        position < AccessMatrix.length;
+        position++
+    ) {
+        if (
+            candidate.charCodeAt(position) !==
+            AccessMatrix[position]
+        ) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+/* ==========================================
+   MODULE 05 :: DENIED ACCESS HANDLER
+   ========================================== */
+
+function denyAccess() {
+    Gateway.error.textContent =
+        "ACCESS DENIED — Incorrect password.";
+
+    Gateway.input.setAttribute("aria-invalid", "true");
+    Gateway.input.focus();
+}
+
+/* ==========================================
+   MODULE 06 :: AUTHORIZED ACCESS HANDLER
+   ========================================== */
+
+function grantAccess() {
+    Gateway.error.textContent = "";
+
+    Gateway.login.classList.add("hidden");
+    Gateway.console.classList.remove("hidden");
+}
+
+/* ==========================================
+   MODULE 07 :: FORM EVENT CONTROLLER
+   ========================================== */
+
+Gateway.form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const submittedKey = readAccessKey();
+
+    if (verifyAccessKey(submittedKey)) {
+        grantAccess();
+    } else {
+        denyAccess();
+    }
+});
+
+/* ==========================================
+   MODULE 08 :: RESET ERROR STATE
+   ========================================== */
+
+Gateway.input.addEventListener("input", function() {
+    Gateway.error.textContent = "";
+    Gateway.input.removeAttribute("aria-invalid");
+});
+
+/* ==========================================
+   END OF GATEWAY SCRIPT
+   ========================================== */
+</script>
+
+</body>
+</html>

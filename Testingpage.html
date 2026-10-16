@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hidden Network Directory</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #080d18;
+    color: #e2e8f0;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 850px;
+    text-align: center;
+}
+
+.terminal {
+    color: #4ade80;
+    font-family: monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(30px, 5vw, 48px);
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.notice {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #172033;
+    border: 1px solid #334155;
+    border-left: 4px solid #4ade80;
+    border-radius: 6px;
+    color: #86efac;
+    margin-bottom: 30px;
+    font-family: monospace;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.tile {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px;
+    text-decoration: none;
+    background: #111c2e;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    transition: 0.25s ease;
+}
+
+.tile:hover {
+    transform: translateY(-5px);
+    border-color: #38bdf8;
+    background: #172a40;
+    box-shadow: 0 10px 30px #0005;
+}
+
+.icon {
+    font-size: clamp(32px, 5vw, 46px);
+}
+
+.tile h2 {
+    font-size: 19px;
+    color: #f8fafc;
+    margin: 0;
+}
+
+.tile p {
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.domain {
+    color: #38bdf8;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+footer {
+    margin-top: 35px;
+    color: #64748b;
+    font-family: monospace;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+@media (max-width: 400px) {
+    .grid {
+        gap: 10px;
+    }
+
+    .tile {
+        padding: 10px;
+    }
+
+    .tile h2 {
+        font-size: 16px;
+    }
+
+    .tile p {
+        font-size: 11px;
+    }
+}
+</style>
+</head>
+
+<body>
+<main class="container">
+
+    <div class="terminal">
+        UNKNOWN NODE // DIRECTORY FOUND
+    </div>
+
+    <h1>PSST...</h1>
+
+    <p class="subtitle">
+        You found something the previous operatives left behind.<br>
+        Four destinations. Four leads. Choose your next move.
+    </p>
+
+    <div class="notice">
+        &gt; Psst. Access this site.
+    </div>
+
+    <div class="grid">
+
+        <a class="tile" href="http://kali.local">
+            <div class="icon">🐉</div>
+            <h2>Kali</h2>
+            <p>Operator information</p>
+            <span class="domain">kali.local</span>
+        </a>
+
+        <a class="tile" href="http://image.local">
+            <div class="icon">▧</div>
+            <h2>Image</h2>
+            <p>Hidden forensic clues</p>
+            <span class="domain">image.local</span>
+        </a>
+
+        <a class="tile" href="http://admin.local">
+            <div class="icon">🔐</div>
+            <h2>Admin</h2>
+            <p>Restricted gateway</p>
+            <span class="domain">admin.local</span>
+        </a>
+
+        <a class="tile" href="http://main.local">
+            <div class="icon">⌂</div>
+            <h2>Main</h2>
+            <p>Mission control</p>
+            <span class="domain">main.local</span>
+        </a>
+
+    </div>
+
+    <footer>
+        CTF NETWORK // UNDOCUMENTED DIRECTORY<br>
+        FOLLOW THE TRAIL LEFT BY PREVIOUS OPERATIVES
+    </footer>
+
+</main>
+</body>
+</html>
